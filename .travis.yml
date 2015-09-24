@@ -3,7 +3,7 @@ sudo: required
 services:
   - docker
 jdk: oraclejdk8
-script:
+before_install:
   - docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"  
 install: 
   - "mvn package docker:build"

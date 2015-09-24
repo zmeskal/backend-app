@@ -1,4 +1,4 @@
 language: java
 sudo: false
 jdk: oraclejdk8
-install: "mvn pacakge docker:build"
+install: "mvn package docker:build"

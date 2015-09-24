@@ -3,4 +3,6 @@ sudo: required
 services:
   - docker
 jdk: oraclejdk8
-install: "mvn package docker:build"
+install: 
+  - "mvn package docker:build"
+  - "docker push cngroup/hakka-backend"

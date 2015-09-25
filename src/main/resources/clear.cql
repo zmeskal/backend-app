@@ -1,0 +1,1 @@
+MATCH (t:Technology),(d:Developer),(a:Allocation),(u:Usage),(p:Project),(s:SubProject),(c:Customer) OPTIONAL MATCH (t)-[r1]-(), (d)-[r2]-(), (a)-[r3]-(), (u)-[r4]-(), (p)-[r5]-(), (s)-[r6]-(), (c)-[r7]-()  DELETE t,r1,d,r2,a,r3,u,r4,p,r5,s,r6,c,r7

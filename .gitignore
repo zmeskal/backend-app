@@ -1,4 +1,6 @@
 .idea
 target
 build
+resouces/data.cql
+resouces/clear.cql
 *.iml

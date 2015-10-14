@@ -8,5 +8,4 @@
 * install Lombok plugin for IDEA
 * install Neo4J locally or use Docker image. Also you could use actual Rancher's Neo4J images
 * seed data ( In progress )
-* you could change url of Neo4J database in application.yml
 * run Application.java as main method

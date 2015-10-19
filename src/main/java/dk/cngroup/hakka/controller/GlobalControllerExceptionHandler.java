@@ -1,5 +1,6 @@
 package dk.cngroup.hakka.controller;
 
+import dk.cngroup.hakka.controller.routes.ErrorRoutes;
 import dk.cngroup.hakka.entity.CustomErrorResponse;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
@@ -22,7 +23,7 @@ class GlobalControllerExceptionHandler {
     @ResponseStatus(HttpStatus.CONFLICT)
     @ResponseBody
     @ExceptionHandler(DataIntegrityViolationException.class)
-    @RequestMapping(value = "/409", produces = MediaType.APPLICATION_JSON)
+    @RequestMapping(value = ErrorRoutes.CONFLICT, produces = MediaType.APPLICATION_JSON)
     public CustomErrorResponse handleConflict(DataIntegrityViolationException exception) {
         return new CustomErrorResponse(exception.getMessage());
     }

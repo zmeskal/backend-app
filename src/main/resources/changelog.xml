@@ -1,0 +1,11 @@
+<changelog>
+
+    <changeset id="hello-world" author="you" contexts="foo,bar">
+        <query>CREATE (n:Sentence {text:'Hello monde!'}) RETURN n</query>
+    </changeset>
+
+    <changeset id="hello-world2" author="you">
+        <query>CREATE (n:Sentence {text:'Hello world!'}) RETURN n</query>
+    </changeset>
+
+</changelog>

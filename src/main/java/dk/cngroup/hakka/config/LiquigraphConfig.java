@@ -1,3 +1,4 @@
+/*
 package dk.cngroup.hakka.config;
 
 import org.liquigraph.core.api.Liquigraph;
@@ -19,7 +20,7 @@ public class LiquigraphConfig implements ApplicationListener<ContextRefreshedEve
     @Autowired
     Environment environment;
 
-    @Value("${neo4j.database.url}")
+    @Value("${neo4j.database.url:'localhost:7474'}")
     String databaseUrl;
 
     @Override
@@ -55,3 +56,4 @@ public class LiquigraphConfig implements ApplicationListener<ContextRefreshedEve
     }
 
 }
+*/

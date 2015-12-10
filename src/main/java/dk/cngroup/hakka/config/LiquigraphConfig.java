@@ -1,4 +1,3 @@
-/*
 package dk.cngroup.hakka.config;
 
 import org.liquigraph.core.api.Liquigraph;
@@ -56,4 +55,3 @@ public class LiquigraphConfig implements ApplicationListener<ContextRefreshedEve
     }
 
 }
-*/

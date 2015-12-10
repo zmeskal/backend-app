@@ -6,18 +6,14 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.embedded.EmbeddedServletContainerCustomizer;
 import org.springframework.boot.context.embedded.ErrorPage;
 import org.springframework.context.annotation.Bean;
+import org.springframework.data.neo4j.repository.config.EnableNeo4jRepositories;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @SpringBootApplication
-@RestController
+@EnableNeo4jRepositories
 public class Application {
-
-    @RequestMapping("/")
-    public String home() {
-        return "Hello, this is Hakka running from Docker";
-    }
 
     @Bean
     public EmbeddedServletContainerCustomizer containerCustomizer() {

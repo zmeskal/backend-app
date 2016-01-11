@@ -7,7 +7,7 @@ import org.neo4j.ogm.annotation.NodeEntity;
 
 @NodeEntity
 @Data
-public class Developer {
+public class Person {
 
     @GraphId
     private Long id;

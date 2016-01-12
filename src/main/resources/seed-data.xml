@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<changelog>
+    <changeset id="11/1/2016-dummy-data" author="jzm">
+        <query>
+            CREATE (cusA:Customer {name: 'A Customer'})
+            CREATE (cusB:Customer {name: 'B Customer'})
+            CREATE (cusC:Customer {name: 'C Customer'})
+            CREATE (projX:Project {name: 'X Project'})
+            CREATE (projY:Project {name: 'Y Project'})
+            CREATE (projZ:Project {name: 'Y Project'})
+            CREATE (cusA)-[:CONTRACTS]->(projX),
+                   (cusA)-[:CONTRACTS]->(projY),
+                   (cusB)-[:CONTRACTS]->(projY),
+                   (cusC)-[:CONTRACTS]->(projZ)
+            Create (subprojX0:Project:SubProject {name: 'X0 SubProject'})&lt;-[:CONSISTS]-(projX)
+            Create (subprojX1:Project:SubProject {name: 'X1 SubProject'})&lt;-[:CONSISTS]-(projX)
+            Create (subprojX2:Project:SubProject {name: 'X2 SubProject'})&lt;-[:CONSISTS]-(projX)
+            Create (subprojY0:Project:SubProject {name: 'Y0 SubProject'})&lt;-[:CONSISTS]-(projY)
+            Create (subprojZ0:Project:SubProject {name: 'Z0 SubProject'})&lt;-[:CONSISTS]-(projZ)
+            CREATE (devA:Developer {name:'Alice'})
+            CREATE (devB:Developer {name:'Bob'})
+            CREATE (devC:Developer {name:'Boris'})
+            CREATE (devD:Developer {name:'Michal'})
+            CREATE (devA)-[rx:ALLOCATED { from:11, to:66}]->(projX)
+            CREATE (devA)-[rx0:ALLOCATED { from:11, to:44}]->(subprojX0)
+            CREATE (devA)-[rx1:ALLOCATED { from:55, to:77}]->(subprojX1)
+            CREATE (devB)-[rx2b:ALLOCATED { from:11, to:88}]->(subprojX2)
+            CREATE (devA)-[rx2a:ALLOCATED { from:11, to:22}]->(subprojX2)
+            CREATE (devC)-[ry0:ALLOCATED { from:11, to:55}]->(subprojY0)
+            CREATE (devD)-[rz0:ALLOCATED { from:11, to:55}]->(subprojZ0)
+            CREATE (MVC:Technology {name:'MVC'})
+            CREATE (FE:Technology {name:'FrontEnd MVC'})
+            CREATE (An:Technology {name:'Angular'})
+            CREATE (An1:Technology {name:'Angular 1'})
+            CREATE (An2:Technology {name:'Angular 2'})
+            CREATE (An12:Technology {name:'Angular 1.2'})
+            CREATE (An13:Technology {name:'Angular 1.3'})
+            CREATE (JS:Technology {name:'Javascript'})
+            CREATE (TS:Technology {name:'Typescript'})
+            CREATE (UI:Technology {name:'UI router'})
+            CREATE (techJ:Technology {name: 'Java'})
+            CREATE (techJ6:Technology {name: 'Java 6'})
+            CREATE (techJ7:Technology {name: 'Java 7'})
+            CREATE (techJ8:Technology {name: 'Java 8'})
+            CREATE (techJS:Technology {name: 'Java Streams'})
+            CREATE (techJNIO:Technology {name: 'Java NIO'})
+            CREATE (techJVM:Technology {name: 'JVM'})
+            CREATE (techS:Technology {name: 'Scala'})
+            CREATE (techV:Technology {name: 'Vagrant'})
+            CREATE
+            (An12)-[:IS_A]->(An1),
+            (An13)-[:IS_A]->(An1),
+            (An1)-[:IS_A]->(An),
+            (An2)-[:IS_A]->(An),
+            (An)-[:IS_A]->(FE),
+            (An)-[:IS_A]->(JS),
+            (An2)-[:IS_A]->(TS),
+            (FE)-[:IS_A]->(MVC),
+            (techJ6)-[:IS_A]->(techJ),
+            (techJ7)-[:IS_A]->(techJ),
+            (techJ8)-[:IS_A]->(techJ),
+            (techJ)-[:IS_A]->(techJVM),
+            (techS)-[:IS_A]->(techJVM),
+            (An1)-[:INCLUDES]->(UI),
+            (techJ8)-[:INCLUDES]->(techJS),
+            (techJ8)-[:INCLUDES]->(techJNIO),
+            <!-- Project uses additional technologies -->
+            (projX)-[:USES {from:11, to:22}]->(techV),
+            (projX)-[:USES {from:11, to:22}]->(techJVM),
+            <!-- Developer uses technology -->
+            (devA)-[:USES {from:11, to:44}]->(techJNIO),
+            (devA)-[:USES {from:22, to:44}]->(techJ8),
+            (devA)-[:USES {from:22, to:33}]->(An2),
+            (devA)-[:USES {from:11, to:22}]->(TS),
+            (devB)-[:USES {from:11, to:55}]->(JS),
+            (devB)-[:USES {from:11, to:55}]->(UI),
+            (devC)-[:USES {from:55, to:66}]->(An1),
+            (devD)-[:USES {from:66, to:77}]->(FE),
+            <!-- Developer likes/trained/certified technology -->
+            (devA)-[:LIKES]->(techS),
+            (devA)-[:IS_CERTIFIED]->(techJ6),
+            (devA)-[:IS_CERTIFIED]->(techJ8),
+            (devB)-[:IS_TRAINED]->(An),
+            (devB)-[:IS_CERTIFIED]->(JS),
+            (devC)-[:LIKES]->(An1)
+        </query>
+    </changeset>
+</changelog>

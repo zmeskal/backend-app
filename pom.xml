@@ -48,6 +48,19 @@
             <version>18.0</version>
         </dependency>
 
+        <dependency>
+
+            <groupId>org.liquigraph</groupId>
+            <artifactId>liquigraph-core</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.neo4j</groupId>
+                    <artifactId>neo4j</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
         <!-- Logstash JSON Encoder -->
         <dependency>
             <groupId>net.logstash.logback</groupId>
@@ -104,9 +117,52 @@
             <version>2.0.0</version>
             <scope>test</scope>
         </dependency>
-
     </dependencies>
 
+
+    <profiles>
+        <profile>
+            <properties>
+                <neo4j.url>jdbc:neo4j://192.168.99.100:32768/</neo4j.url>
+                <neo4j.username>neo4j</neo4j.username>
+                <neo4j.pass>admin</neo4j.pass>
+            </properties>
+            <id>SeedData</id>
+            <dependencyManagement>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.liquigraph</groupId>
+                        <artifactId>liquigraph-core</artifactId>
+                        <version>1.0-SNAPSHOT</version>
+                    </dependency>
+                </dependencies>
+            </dependencyManagement>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.liquigraph</groupId>
+                        <artifactId>liquigraph-maven-plugin</artifactId>
+                        <version>1.0-SNAPSHOT</version>
+                        <configuration>
+                            <changelog>seed-data.xml</changelog><!-- classpath location -->
+                            <jdbcUri>${neo4j.url}</jdbcUri>
+                            <username>${neo4j.username}</username>
+                            <password>${neo4j.pass}</password>
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <id>seed-data</id>
+                                <goals>
+                                    <goal>dry-run</goal>
+                                    <goal>run</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 
     <build>
         <plugins>
@@ -131,5 +187,27 @@
             </plugin>
         </plugins>
     </build>
+
+    <repositories>
+        <repository>
+            <id>oss-sonatype</id>
+            <name>oss-sonatype</name>
+            <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>oss-sonatype</id>
+            <name>oss-sonatype</name>
+            <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </pluginRepository>
+    </pluginRepositories>
 
 </project>

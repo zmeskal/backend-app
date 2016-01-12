@@ -7,5 +7,6 @@
 * import to IDEA as a maven project
 * install Lombok plugin for IDEA
 * install Neo4J locally or use Docker image. Also you could use actual Rancher's Neo4J images
-* seed data ( In progress )
-* run Application.java as main method
+* run Application.java as main method (with -Dspring.profiles.active=dev)
+* seed data: POST http://localhost:8080/api/v1/seed (or DELETE to get rid of data) or seed with mvn clean install -PSeedData
+

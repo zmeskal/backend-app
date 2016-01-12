@@ -5,7 +5,6 @@ import dk.cngroup.hakka.entity.Project;
 import dk.cngroup.hakka.repository.ProjectRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.rest.core.config.Projection;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 

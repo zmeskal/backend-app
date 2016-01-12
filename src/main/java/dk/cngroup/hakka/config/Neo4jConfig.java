@@ -17,12 +17,16 @@ public class Neo4jConfig extends Neo4jConfiguration {
     public static final String ENTITIES = "dk.cngroup.hakka.entity";
 
     @Value("${neo4j.database.url:'localhost:7474'}")
-    String databaseUrl;
+    private String databaseUrl;
+    @Value("${neo4j.database.username:'neo4j'}")
+    private String username;
+    @Value("${neo4j.database.password:'admin'}")
+    private String password;
 
     @Override
     @Bean
     public Neo4jServer neo4jServer() {
-        return new RemoteServer(databaseUrl);
+        return new RemoteServer(databaseUrl, username, password);
     }
 
     @Override

@@ -1,0 +1,8 @@
+neo4j:
+  database:
+    url: http://192.168.99.100:32768
+    jdbc: jdbc:neo4j://192.168.99.100:32768
+    username: neo4j
+    password: admin
+seed:
+  enabled: true

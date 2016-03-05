@@ -1,7 +1,6 @@
-package dk.cngroup.hakka.controller;
+package dk.cngroup.hakka.controller.errors;
 
 import dk.cngroup.hakka.controller.routes.ErrorRoutes;
-import dk.cngroup.hakka.entity.CustomErrorResponse;
 import org.springframework.boot.autoconfigure.web.ErrorController;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

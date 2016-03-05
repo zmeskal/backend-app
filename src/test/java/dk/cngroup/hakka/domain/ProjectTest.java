@@ -10,7 +10,10 @@ import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import java.util.HashSet;
+
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 
 @ContextConfiguration(classes = {TestNeo4jContext.class})
@@ -30,5 +33,18 @@ public class ProjectTest {
 
         assertEquals(project.getName(), "New Project 1");
         assertTrue(project.getId() != null);
+    }
+
+    @Test
+    public void shouldAddSubProjectsToProject() {
+        Project project = new Project();
+        project.setName("New Project 1");
+        project.setSubProjects(new HashSet<Project>() {{
+            add(new Project());
+        }});
+
+        projectRepository.save(project);
+
+        assertEquals(projectRepository.findOne(project.getId()).getSubProjects().size(), 1);
     }
 }

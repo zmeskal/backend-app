@@ -1,4 +1,4 @@
-package dk.cngroup.hakka.entity;
+package dk.cngroup.hakka.controller.errors;
 
 import lombok.Data;
 

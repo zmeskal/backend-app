@@ -1,7 +1,6 @@
-package dk.cngroup.hakka.controller;
+package dk.cngroup.hakka.controller.errors;
 
 import dk.cngroup.hakka.controller.routes.ErrorRoutes;
-import dk.cngroup.hakka.entity.CustomErrorResponse;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;

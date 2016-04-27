@@ -21,4 +21,7 @@ public class Project {
 
     @Relationship(type = "CONSISTS", direction = Relationship.OUTGOING)
     private Set<Project> subProjects = new HashSet<>();
+
+    @Relationship(type = "USES", direction = Relationship.OUTGOING)
+    private Set<Technology> technologies = new HashSet<>();
 }
